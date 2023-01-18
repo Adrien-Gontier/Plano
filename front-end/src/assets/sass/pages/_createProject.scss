@@ -1,0 +1,12 @@
+.createProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.createProject div {
+    display: flex;
+    align-items: center;
+    gap: 2rem
+}
