@@ -1,11 +1,36 @@
-import React, { useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 
 export default function CreateProject() {
 
     const [nameOfProject, setNameOfProject] = useState("")
     const [deadLineDate, setDeadLineDate] = useState("")
-    const [description, setDescription] = useState("")
+    const [descriptionOfProject, setDescriptionOfProject] = useState("")
+    const [actionCreateProject, setActionCreateProject] = useState(false);
+
+    const API_URL_Plano = "http://localhost:3000/plano/projects";
+
+    useEffect(() => {
+
+        if (actionCreateProject) {
+            axios.post(API_URL_Plano, {
+                name: nameOfProject,
+                dateDeadLine: deadLineDate,
+                description: descriptionOfProject
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            setActionCreateProject(false);
+        }
+
+    }, [actionCreateProject]);
+
+
 
     return (
         <div className="createProject">
@@ -24,9 +49,10 @@ export default function CreateProject() {
             <div>
                 <p>Description :</p>
                 <label>
-                    <input type="text" value={description} placeholder="la description de votre projet" onChange={(event) => setDescription(event.target.value)} />
+                    <input type="text" value={descriptionOfProject} placeholder="la description de votre projet" onChange={(event) => setDescriptionOfProject(event.target.value)} />
                 </label>
             </div>
+            <button onClick={() => setActionCreateProject(true)}>Créer</button>
         </div>
     )
 }
