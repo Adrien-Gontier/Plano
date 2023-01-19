@@ -25,6 +25,7 @@ public class ProjectServiceimpl implements ProjectService {
     public Iterable getAllProjects() {
         return projectRepository.findAll();
     }
+    // make return only name and id of each project
 
     @Override
     public Project getProjectById(String projectId) {
