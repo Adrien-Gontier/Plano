@@ -1,10 +1,12 @@
 import React from 'react'
-import CreateProjectLink from './CreateProjectLink'
 import DeconnectBtn from './DeconnectBtn'
 import Title from './Title'
 
 export default function Header() {
+    
+    // set context for display compoennt in psedo navbar
+    
     return (
-        <div className="header"><Title /><CreateProjectLink /><DeconnectBtn /></div>
+        <div className="header"><Title /><DeconnectBtn /></div>
     )
 }
