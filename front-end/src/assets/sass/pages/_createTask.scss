@@ -1,0 +1,12 @@
+.createTask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.createTask div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
