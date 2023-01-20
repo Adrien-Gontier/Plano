@@ -1,0 +1,12 @@
+.oneProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $fontFamily-Inter;
+}
+
+.oneProject div {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+}
