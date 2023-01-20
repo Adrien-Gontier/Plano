@@ -1,0 +1,14 @@
+.miniProject-link {
+  font-family: $fontFamily-Inter;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.miniProject-link:hover {
+  background-color: rgb(232, 232, 232);
+}
+
+// TODO code transition with the hover
