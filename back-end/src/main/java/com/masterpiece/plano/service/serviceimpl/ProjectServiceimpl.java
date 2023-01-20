@@ -1,5 +1,6 @@
 package com.masterpiece.plano.service.serviceimpl;
 
+import com.masterpiece.plano.dtos.ProjectDto;
 import com.masterpiece.plano.entity.Project;
 import com.masterpiece.plano.entity.Task;
 import com.masterpiece.plano.exception.ResourceNotFoundException;
@@ -8,6 +9,8 @@ import com.masterpiece.plano.service.ProjectService;
 import com.masterpiece.plano.service.TaskService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -22,10 +25,20 @@ public class ProjectServiceimpl implements ProjectService {
     }
 
     @Override
-    public Iterable getAllProjects() {
-        return projectRepository.findAll();
+    public List<ProjectDto> getAllProjects() {
+        List<Project> projectList = projectRepository.findAll();
+        List<ProjectDto> projectDTOList = new ArrayList<>();
+
+        for (var project: projectList) {
+            var projectDTO = ProjectDto.builder()
+                    .idProject(project.getProjectId())
+                    .name(project.getName())
+                    .deadLineDate(project.getDateDeadLine())
+                    .build();
+            projectDTOList.add(projectDTO);
+        }
+        return projectDTOList;
     }
-    // make return only name and id of each project
 
     @Override
     public Project getProjectById(String projectId) {
@@ -65,4 +78,5 @@ public class ProjectServiceimpl implements ProjectService {
         project.getTask().add(task);
         return projectRepository.save(project);
     }
+    // TODO make this request to create a task in the project
 }
