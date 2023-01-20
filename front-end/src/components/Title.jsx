@@ -1,7 +1,6 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Title() {
-  return (
-    <p className="title-app">Plano</p>
-  )
+  return <Link to='/' className="title-app">Plano</Link>;
 }
