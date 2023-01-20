@@ -1,0 +1,15 @@
+.allProjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allProjects__title {
+    font-family: $fontFamily-Inter;
+    font-size: 2rem;
+}
+
+.allProjects__eachMiniProject {
+    column-count: 2;
+    gap: 8rem;
+}
