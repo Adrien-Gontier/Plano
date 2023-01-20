@@ -1,9 +1,12 @@
 package com.masterpiece.plano.service;
 
+import com.masterpiece.plano.dtos.ProjectDto;
 import com.masterpiece.plano.entity.Project;
 
+import java.util.List;
+
 public interface ProjectService {
-    Iterable getAllProjects();
+    List<ProjectDto> getAllProjects();
 
     Project getProjectById(String projectId);
 
