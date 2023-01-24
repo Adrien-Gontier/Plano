@@ -1,6 +1,7 @@
 package com.masterpiece.plano.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.sun.istack.NotNull;
@@ -62,18 +63,22 @@ public class Task {
     @NotNull
     private Boolean temporal = false;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = true, name = "estimated_start_date")
     @Nullable
     private Date estimatedStartDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = true, name = "estimated_end_date")
     @Nullable
     private Date estimatedEndDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = true, name = "actual_start_date")
     @Nullable
     private Date actualStartDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = true, name = "actual_end_date")
     @Nullable
     private Date actualEndDate;
