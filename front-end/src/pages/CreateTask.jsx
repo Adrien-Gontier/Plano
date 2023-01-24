@@ -1,13 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function CreateTask() {
+  const { idProject } = useParams()
+  const navigate = useNavigate();
   const [nameOfTask, setNameOfTask] = useState('')
   const [StartDateEstimated, setStartDateEstimated] = useState('')
   const [EndDateEstimated, setEndDateEstimated] = useState('')
   const [actionCreateTask, setActionCreateTask] = useState(false)
 
-  const apiUrlPlano = ''
+  const apiUrlPlano = 'http://localhost:3000/plano/projects/createtaskinproject/' + idProject
 
   useEffect(() => {
     if (actionCreateTask) {
@@ -15,8 +18,7 @@ export default function CreateTask() {
         .post(apiUrlPlano, {
           name: nameOfTask,
           estimatedStartDate: StartDateEstimated,
-          estimatedEndDate: setEndDateEstimated
-
+          estimatedEndDate: setEndDateEstimated,
         })
       setActionCreateTask(false)
     }
@@ -24,6 +26,7 @@ export default function CreateTask() {
 
   return (
     <div className='createTask'>
+      <button onClick={() => navigate(-1)}>Retour</button>
       <h2>Créer une tâche</h2>
       <div>
         <p>Nom de la tâche :</p>
