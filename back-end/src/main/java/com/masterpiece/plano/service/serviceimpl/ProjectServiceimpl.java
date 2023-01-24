@@ -67,16 +67,16 @@ public class ProjectServiceimpl implements ProjectService {
     @Override
     public String deleteProject(String projectId) {
         var project = getProjectById(projectId);
+        
+
         projectRepository.delete(project);
         return "This project has been deleted successfully";
     }
 
     @Override
-    public Object putTaskInProject(String projectId, String taskId) {
+    public Object putTaskInProject(String projectId, Task taskRequest) {
         Project project = getProjectById(projectId);
-        Task task = taskService.getTaskById(taskId);
-        project.getTask().add(task);
+        project.getTask().add(taskRequest);
         return projectRepository.save(project);
     }
-    // TODO make this request to create a task in the project
 }
