@@ -1,5 +1,6 @@
 package com.masterpiece.plano.controller;
 
+import com.masterpiece.plano.entity.Task;
 import com.masterpiece.plano.service.ProjectService;
 import com.masterpiece.plano.entity.Project;
 import org.springframework.http.HttpStatus;
@@ -53,11 +54,11 @@ public class ProjectController {
     }
 
 
-    @PostMapping("/puttaskinproject/{projectid}/{taskid}")
-    public ResponseEntity putTaskInProject(@PathVariable("projectid") final String projectId, @PathVariable("taskid") final String taskId) {
+    @PostMapping("/createtaskinproject/{projectId}")
+    public ResponseEntity putTaskInProject(@PathVariable("projectId") final String projectId, @RequestBody final Task taskRequest) {
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
-                .body(projectService.putTaskInProject(projectId, taskId));
+                .body(projectService.putTaskInProject(projectId, taskRequest));
     }
 
 
