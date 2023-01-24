@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import MiniTask from '../components/MiniTask';
 
 export default function OneProject() {
 
@@ -17,6 +18,7 @@ export default function OneProject() {
       .then((res) => {
         const occurence = res.data
         setDataOneProject(occurence)
+        console.log(occurence);
       })
   }, [])
 
@@ -41,6 +43,7 @@ export default function OneProject() {
       {actionDeleteButton == 1 ? <p>"Cette action entrainera la suppression de toutes les données du projet"</p> : null}
       {actionDeleteButton == 1 ? <p>"Si vous êtes sur cliquez une nouvelle fois sur le boutton"</p> : null}
       {actionDeleteButton == 1 ? <button onClick={() => setActionDeleteButton(actionDeleteButton + 1)}>Supprimer le projet</button> : null}
+      <Link to={`/createtask/${idProject}`}>Créer une tâche</Link>
       <div>
         <p>Description</p>
         <p>{dataOneProject.description}</p>
@@ -57,6 +60,14 @@ export default function OneProject() {
         <p>Pourquoi j'ai réussi</p>
         <p>{dataOneProject.whyIPassed}</p>
       </div>
+      {dataOneProject.task?.map((eachTask) => (
+        <Link
+          to={`/onetask/${eachTask.taskId}`}
+          key={eachTask.taskId}
+        >
+          <MiniTask props={eachTask} />
+        </Link>
+      ))}
     </div>
   )
 }
