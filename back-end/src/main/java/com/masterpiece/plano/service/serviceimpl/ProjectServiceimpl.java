@@ -67,8 +67,10 @@ public class ProjectServiceimpl implements ProjectService {
     @Override
     public String deleteProject(String projectId) {
         var project = getProjectById(projectId);
-        
-
+        var tasksProject = project.getTask();
+        for (var task : tasksProject) {
+            taskService.deleteTask(task.getTaskId());
+        }
         projectRepository.delete(project);
         return "This project has been deleted successfully";
     }
