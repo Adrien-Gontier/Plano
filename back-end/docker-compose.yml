@@ -10,19 +10,4 @@ services:
       POSTGRES_PASSWORD: PlanoAdminUserPwd
     ports:
       - 5433:5432
-  keycloak:
-    image: quay.io/keycloak/keycloak
-    entrypoint: '/opt/keycloak/bin/kc.sh start-dev'
-    environment:
-      KC_DB: postgres
-      KC_DB_USERNAME: planoadminuser
-      KC_DB_PASSWORD: PlanoAdminUserPwd
-      KC_DB_SCHEMA: public
-      KC_DB_URL: jdbc:postgresql://postgres:5432/planodb
-      KEYCLOAK_ADMIN: Admin
-      KEYCLOAK_ADMIN_PASSWORD: Admin
-      volumes: "keycloak:/opt/keycloak/data/"
-    ports:
-      - 8080:8080
-    depends_on:
-      - postgres
+  
