@@ -1,0 +1,83 @@
+.login {
+    margin: 2rem;
+}
+
+.login__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p {
+        font-family: $fontFamily-Inter;
+        font-size: 2rem;
+    }
+}
+
+.login__main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    hr {
+        margin: 0;
+        padding: 0;
+        color: black;
+        height: 25rem;
+        width: 0.2rem;
+        background-color: black;
+        border: 0;
+    }
+}
+
+.login__main__signUp {
+    margin-left: 0;
+    margin-right: 0;
+    a {
+        font-family: $fontFamily-Inter;
+        text-decoration: none;
+        color: black;
+        font-size: 2rem;
+    }
+}
+
+.login__main__signIn {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    p {
+        font-family: $fontFamily-Inter;
+        font-size: 2rem;
+        margin-bottom: 3.5rem;
+    }
+    div {
+        margin-top: 4rem;
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        label input {
+            font-size: 1rem;
+            width: 18rem;
+            height: 2rem;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0.1rem solid black;
+            text-align: center;
+        }
+        label input:focus {
+            outline: none;
+        }
+    }
+    button {
+        margin-top: 3rem;
+        font-family: $fontFamily-Inter;
+        font-size: 1.5rem;
+        background-color: rgba(154, 180, 231, 1);
+        color: black;
+        border: 0.1rem solid black;
+        border-radius: 1rem;
+        padding: 0.5rem 1.3rem;
+    }
+}
