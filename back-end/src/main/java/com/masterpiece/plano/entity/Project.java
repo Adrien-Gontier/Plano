@@ -3,12 +3,13 @@ package com.masterpiece.plano.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.sun.istack.NotNull;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
+import jakarta.annotation.*;
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
+
+
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -24,11 +25,11 @@ public class Project {
 
 
     @Column(length = 150, nullable = false)
-    @NotNull
+    @Nonnull
     private String name;
 
-    @Type(type = "text")
-    @Column(nullable = true)
+
+    @Column(nullable = true, columnDefinition = "text")
     @Nullable
     private String description;
 
@@ -38,19 +39,19 @@ public class Project {
     private Date dateDeadLine;
 
 
-    @Type(type = "text")
-    @Column(nullable = true, name = "why_i_passed")
+
+    @Column(nullable = true, name = "why_i_passed", columnDefinition = "text")
     @Nullable
     private String whyIPassed;
 
 
-    @Type(type = "text")
-    @Column(nullable = true, name = "why_i_failed")
+
+    @Column(nullable = true, name = "why_i_failed", columnDefinition = "text")
     @Nullable
     private String whyIFailed;
 
-    @Type(type = "text")
-    @Column(nullable = true, name = "to_do_better")
+
+    @Column(nullable = true, name = "to_do_better", columnDefinition = "text")
     @Nullable
     private String toDoBetter;
 
