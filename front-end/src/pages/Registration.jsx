@@ -1,11 +1,34 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 
 export default function Registration() {
-    const [identifier, setIdentifier] = useState('')
-    const [password, setPassword] = useState('')
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+    const [identifierValue, setIdentifierValue] = useState('')
+    const [passwordValue, setPasswordValue] = useState('')
+    const [firstNameValue, setFirstNameValue] = useState('')
+    const [lastNameValue, setLastNameValue] = useState('')
+    const [actionCreateUser, setActionCreateUser] = useState(false)
+
+
+    const apiUrlPlano = 'http://localhost:3000/plano/users'
+
+    useEffect(() => {
+        if (actionCreateUser) {
+            axios
+                .post(apiUrlPlano, {
+                    identifier: identifierValue,
+                    password: passwordValue,
+                    firstName: firstNameValue,
+                    lastName: lastNameValue
+                })
+                
+            setActionCreateUser(false)
+        }
+    }, [actionCreateUser])
+
+
+
+
     return (
         <div className='registration'>
             <Title />
@@ -17,9 +40,9 @@ export default function Registration() {
                         <label>
                             <input
                                 type="text"
-                                value={identifier}
+                                value={identifierValue}
                                 placeholder="Veuillez renseigner votre identifiant"
-                                onChange={(event) => setIdentifier(event.target.value)}
+                                onChange={(event) => setIdentifierValue(event.target.value)}
                             />
                         </label>
                     </div>
@@ -28,9 +51,9 @@ export default function Registration() {
                         <label>
                             <input
                                 type="text"
-                                value={password}
+                                value={passwordValue}
                                 placeholder="Veuillez renseigner votre mot de passe"
-                                onChange={(event) => setPassword(event.target.value)}
+                                onChange={(event) => setPasswordValue(event.target.value)}
                             />
                         </label>
                     </div>
@@ -42,9 +65,9 @@ export default function Registration() {
                         <label>
                             <input
                                 type="text"
-                                value={lastName}
+                                value={lastNameValue}
                                 placeholder="Veuillez renseigner votre nom de famille"
-                                onChange={(event) => setLastName(event.target.value)}
+                                onChange={(event) => setLastNameValue(event.target.value)}
                             />
                         </label>
                     </div>
@@ -53,13 +76,13 @@ export default function Registration() {
                         <label>
                             <input
                                 type="text"
-                                value={firstName}
+                                value={firstNameValue}
                                 placeholder="Veuillez renseigner votre prénom"
-                                onChange={(event) => setFirstName(event.target.value)}
+                                onChange={(event) => setFirstNameValue(event.target.value)}
                             />
                         </label>
                     </div>
-                    <button className='registration__main__validateButton'>Valider</button>
+                    <button onClick={() => setActionCreateUser(true)} className='registration__main__validateButton'>Valider</button>
                 </div>
             </div >
         </div >
