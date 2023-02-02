@@ -5,6 +5,7 @@ import com.masterpiece.plano.service.ProjectService;
 import com.masterpiece.plano.entity.Project;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,6 +26,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<Project> getProjectById(@PathVariable("projectId") final String projectId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -47,6 +49,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{projectId}")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<String> deleteProject(@PathVariable String projectId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -55,6 +58,7 @@ public class ProjectController {
 
 
     @PostMapping("/createtaskinproject/{projectId}")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity putTaskInProject(@PathVariable("projectId") final String projectId, @RequestBody final Task taskRequest) {
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
