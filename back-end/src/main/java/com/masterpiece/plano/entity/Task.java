@@ -4,12 +4,12 @@ package com.masterpiece.plano.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.sun.istack.NotNull;
+import jakarta.annotation.*;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
+
+
 import java.util.Date;
 
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class)
@@ -23,44 +23,44 @@ public class Task {
     private String taskId;
 
     @Column(length = 150, nullable = false)
-    @NotNull
+    @Nonnull
     private String name;
 
-    @Type(type = "text")
-    @Column(name = "why_i_passed", nullable = true)
+
+    @Column(name = "why_i_passed", nullable = true, columnDefinition = "text")
     @Nullable
     private String whyIPassed;
 
-    @Type(type = "text")
-    @Column(name = "why_i_failed", nullable = true)
+
+    @Column(name = "why_i_failed", nullable = true, columnDefinition = "text")
     @Nullable
     private String whyIFailed;
 
 
-    @Type(type = "text")
-    @Column(name = "to_do_better", nullable = true)
+
+    @Column(name = "to_do_better", nullable = true, columnDefinition = "text")
     @Nullable
     private String toDoBetter;
 
 
     @Column(columnDefinition = "boolean default false", nullable = false, name = "`specific`")
-    @NotNull
+    @Nonnull
     private Boolean specific = false;
 
     @Column(columnDefinition = "boolean default false", nullable = false, name = "`measurable`")
-    @NotNull
+    @Nonnull
     private Boolean measurable = false;
 
     @Column(columnDefinition = "boolean default false", nullable = false, name = "`acceptable`")
-    @NotNull
+    @Nonnull
     private Boolean acceptable = false;
 
     @Column(columnDefinition = "boolean default false", nullable = false, name = "`realistic`")
-    @NotNull
+    @Nonnull
     private Boolean realistic = false;
 
     @Column(columnDefinition = "boolean default false", nullable = false, name = "`temporal`")
-    @NotNull
+    @Nonnull
     private Boolean temporal = false;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
