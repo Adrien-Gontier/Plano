@@ -12,7 +12,7 @@ import Registration from "./pages/Registration";
 export default function App() {
   return (
     <BrowserRouter>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<AllProjects />} />
         <Route path="/createproject" element={<CreateProject />} />
