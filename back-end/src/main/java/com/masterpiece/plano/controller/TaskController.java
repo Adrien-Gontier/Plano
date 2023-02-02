@@ -5,6 +5,7 @@ import com.masterpiece.plano.entity.Task;
 import com.masterpiece.plano.service.TaskService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -25,6 +26,7 @@ public class TaskController {
     }
 
     @GetMapping("/{taskId}")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity getTaskById(@PathVariable("taskId") final String taskId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -50,6 +52,7 @@ public class TaskController {
 
 
     @DeleteMapping("/{taskId}")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<String> deleteTask(@PathVariable String taskId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
