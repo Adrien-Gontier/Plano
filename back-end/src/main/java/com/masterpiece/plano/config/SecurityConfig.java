@@ -51,9 +51,9 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/plano/login").permitAll()
-                        .requestMatchers("/plano/projects").permitAll()
-                        .requestMatchers("/plano/projects/{projectId}").permitAll()
-                        .requestMatchers("/plano/projects/createtaskinproject/{projectId}").permitAll()
+                       // .requestMatchers("/plano/projects").permitAll()
+                       //.requestMatchers("/plano/projects/{projectId}").permitAll()
+                       .requestMatchers("/plano/projects/createtaskinproject/{projectId}").permitAll()
                         .requestMatchers("/plano/users").permitAll()
                         .requestMatchers("/plano/roles").permitAll()
                         .requestMatchers("/plano/roles/{roleid}").permitAll()
