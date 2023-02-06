@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import BackButton from '../components/BackButton'
 
 export default function CreateProject() {
 
@@ -10,6 +9,8 @@ export default function CreateProject() {
   const [deadLineDate, setDeadLineDate] = useState('')
   const [descriptionOfProject, setDescriptionOfProject] = useState('')
   const [actionCreateProject, setActionCreateProject] = useState(false)
+  const token = localStorage.getItem("TOKEN")
+  let source = axios.CancelToken.source()
 
   const API_URL_Plano = 'http://localhost:3000/plano/projects'
 
@@ -17,6 +18,10 @@ export default function CreateProject() {
     if (actionCreateProject) {
       axios
         .post(API_URL_Plano, {
+          cancelToken: source.token,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
           name: nameOfProject,
           dateDeadLine: deadLineDate,
           description: descriptionOfProject
@@ -29,7 +34,6 @@ export default function CreateProject() {
 
   return (
     <div className="createProject">
-      <BackButton />
       <h2>Créer un projet</h2>
       <div>
         <p>Nom du project :</p>
