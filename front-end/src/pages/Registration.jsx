@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Title from '../components/Title'
 
 export default function Registration() {
+    const navigate = useNavigate()
     const [identifierValue, setIdentifierValue] = useState('')
     const [passwordValue, setPasswordValue] = useState('')
     const [firstNameValue, setFirstNameValue] = useState('')
@@ -21,13 +23,9 @@ export default function Registration() {
                     firstName: firstNameValue,
                     lastName: lastNameValue
                 })
-                
             setActionCreateUser(false)
         }
     }, [actionCreateUser])
-
-
-
 
     return (
         <div className='registration'>
@@ -57,7 +55,7 @@ export default function Registration() {
                             />
                         </label>
                     </div>
-                    <button className='registration__main__backButton'>Retour</button>
+                    <button onClick={() => navigate(-1)} className='registration__main__backButton'>Retour</button>
                 </div>
                 <div>
                     <div>
