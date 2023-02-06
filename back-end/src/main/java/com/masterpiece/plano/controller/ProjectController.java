@@ -19,6 +19,7 @@ public class ProjectController {
     }
 
     @GetMapping("")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity getAllProjects() {
         return ResponseEntity
                 .status(HttpStatus.OK)
@@ -26,7 +27,7 @@ public class ProjectController {
     }
 
     @GetMapping("/{projectId}")
-    // @PreAuthorize("hasAuthority('SCOPE_USER')")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<Project> getProjectById(@PathVariable("projectId") final String projectId) {
         return ResponseEntity
                 .status(HttpStatus.OK)
