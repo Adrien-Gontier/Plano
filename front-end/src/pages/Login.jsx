@@ -1,16 +1,22 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Title from '../components/Title'
 
-export default function Login() {
+export default function Login(props) {
+  const navigate = useNavigate()
   const [identifierValue, setIdentifierValue] = useState('')
   const [passwordValue, setPasswordValue] = useState('')
   const [actionLogin, setActionLogin] = useState(false)
+  const {isLogged, setIsLogged} = props
+  
 
   const apiUrlPlano = 'http://localhost:3000/plano/login'
 
     useEffect(() => {
+      if(localStorage.getItem("TOKEN")) {
+       navigate('/allprojects')
+      }
         if (actionLogin) {
             axios
                 .post(apiUrlPlano, {
@@ -18,11 +24,13 @@ export default function Login() {
                     password: passwordValue
                 })
                 .then(function (response) {
-                  console.log(response.data);
+                  localStorage.setItem("TOKEN", response.data)
+                  setIsLogged(true)
+                  navigate("/allprojects")
                 })
-              //   .catch(function (error) {
-              //     console.log(error);
-              //   });
+                .catch(function (error) {
+                  console.log(error);
+                });
             setActionLogin(false)
         }
     }, [actionLogin])
@@ -35,7 +43,7 @@ export default function Login() {
       </div>
       <div className='login__main'>
         <div className='login__main__signUp'>
-          <Link>S'enregistrer</Link>
+          <Link to='/registration'>S'enregistrer</Link>
         </div>
         <hr></hr>
         <div className='login__main__signIn'>
