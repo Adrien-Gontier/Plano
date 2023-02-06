@@ -2,44 +2,33 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-export default function OneTask() {
+export default function OneTask(props) {
 
     const { idTask } = useParams()
     const navigate = useNavigate();
-    const [dataOneProject, setDataOneProject] = useState([])
     const [actionDeleteButton, setActionDeleteButton] = useState(0)
 
-    const API_URL_Plano = 'http://localhost:3000/plano/tasks/' + idTask
-
-
+    const { apiUrl, setApiUrl, dataProjects } = props
     useEffect(() => {
-        axios
-            .get(API_URL_Plano)
-            .then((res) => {
-                const occurence = res.data
-                setDataOneProject(occurence)
-                console.log(occurence);
-            })
+        setApiUrl('http://localhost:3000/plano/tasks/' + idTask)
     }, [])
+    const dataOneTask = props?.props
 
     useEffect(() => {
         if (actionDeleteButton == 2) {
             axios
-                .delete(API_URL_Plano)
+                .delete(apiUrl)
                 .then((res) => {
                     const occurence = res.data
-                    setDataOneProject(occurence)
                 })
             navigate(-1)
-            // window.location.reload() // best soluce will be coded
         }
     }, [actionDeleteButton])
-
 
     return (
         <div>
             <button onClick={() => navigate(-1)}>Retour</button>
-            <p>{dataOneProject.name}</p>
+            <p>{dataOneTask.name}</p>
             {actionDeleteButton == 0 ? <button onClick={() => setActionDeleteButton(actionDeleteButton + 1)}>Supprimer la tâche</button> : null}
             {actionDeleteButton == 1 ? <p>"Êtes-vous vraiment sur de vouloir supprimer cette tâche ?"</p> : null}
             {actionDeleteButton == 1 ? <p>"Cette action entrainera la suppression de toutes les données de cette tâche"</p> : null}
