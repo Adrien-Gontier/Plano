@@ -1,35 +1,39 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import Loader from '../components/Loader'
 import MiniProject from '../components/MiniProject'
 
-export default function AllProjects() {
-  const [dataProjects, setDataProjects] = useState([])
 
-  const API_URL_Plano = 'http://localhost:3000/plano/projects'
+export default function AllProjects(props) {
+  const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get(API_URL_Plano).then((res) => {
-      const occurence = res.data
-      setDataProjects(occurence)
-    })
+    if (localStorage.getItem("TOKEN")) {
+      setApiUrl('http://localhost:3000/plano/projects')
+    } else {
+      navigate("/")
+    }
   }, [])
-
-  return (
-    <div className="allProjects">
-      <h1 className="allProjects__title">All projects</h1>
-      <Link to="/createproject" className="createProject-link">Créé un projet</Link>
-      <div className="allProjects__eachMiniProject">
-        {dataProjects?.map((eachProject) => (
-          <Link
-            to={`/oneproject/${eachProject.idProject}`}
-            className="miniProject-link"
-            key={eachProject.idProject}
-          >
-            <MiniProject props={eachProject} />
-          </Link>
-        ))}
+  const { apiUrl, setApiUrl, dataProjects } = props
+  const allDataProjects = props?.props
+    return (
+      allDataProjects[0] == null
+        ? <Loader />
+        : <div className="allProjects">
+          <h1 className="allProjects__title">All projects</h1>
+          <Link to="/createproject" className="createProject-link">Créé un projet</Link>
+          <div className="allProjects__eachMiniProject">
+            {allDataProjects?.map((eachProject) => (
+              <Link
+                to={`/oneproject/${eachProject.idProject}`}
+                className="miniProject-link"
+                key={eachProject.idProject}
+              >
+                <MiniProject props={eachProject} />
+              </Link>
+            ))}
+          </div>
       </div>
-    </div>
-  )
+    )
+  
 }
