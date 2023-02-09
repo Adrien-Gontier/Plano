@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: planodb
       POSTGRES_USER: planoadminuser
-      POSTGRES_PASSWORD: PlanoAdminUserPwd
+      POSTGRES_PASSWORD: ef3bfad4-a84a-11ed-9efc-33bec960dff5
     ports:
       - 5433:5432
   
