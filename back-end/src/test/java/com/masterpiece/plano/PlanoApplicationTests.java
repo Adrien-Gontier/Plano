@@ -14,12 +14,10 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@AutoConfigureMockMvc
+
 @SpringBootTest
 class PlanoApplicationTests {
-
-
-
+	
 	@SneakyThrows
 	@Test
 	void testCreateProject() {
