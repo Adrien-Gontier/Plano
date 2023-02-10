@@ -76,6 +76,19 @@ public class Project {
         this.task = task;
     }
 
+
+
+    public Project(String projectId, String name, String description, Date dateDeadLine, String whyIPassed, String whyIFailed, String toDoBetter) {
+        this.projectId = projectId;
+        this.name = name;
+        this.description = description;
+        this.dateDeadLine = dateDeadLine;
+        this.whyIFailed = whyIFailed;
+        this.whyIPassed = whyIPassed;
+        this.toDoBetter = toDoBetter;
+    }
+
+
     public String getProjectId() {
         return projectId;
     }
