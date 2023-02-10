@@ -19,7 +19,7 @@ public class ProjectController {
     }
 
     @GetMapping("")
-    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    // @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity getAllProjects() {
         return ResponseEntity
                 .status(HttpStatus.OK)
