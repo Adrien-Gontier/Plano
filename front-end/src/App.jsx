@@ -32,17 +32,13 @@ export default function App() {
         })
         .then((response) => {
           const occurence = response.data
-          
-          setTimeout(() => {
             setDataProjects(occurence)
             setIsLogged(true)
-          }, 2000)
         })
         .catch((error) => {
           if (error?.code == "ERR_CANCELED") {
             // request canceled, do nothing
           } else if (error?.response?.status == 401) {
-            // toast("Unauthorized access");
             navigate("/");
           } else {
             console.error(error);
