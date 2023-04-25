@@ -1,1 +1,5 @@
 - Put command line in documentation
+- Put command line of Sass
+- Put command line of node
+- Put how to launch docker (command line)
+- Put command line of maven
