@@ -4,3 +4,6 @@
 - Put how to launch docker (command line)
 - Put command line of maven
 - Put command line ESLint
+
+
+- Do the last relation between User and Project
