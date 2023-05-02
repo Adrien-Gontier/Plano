@@ -8,3 +8,7 @@
 
 
 - Do the last relation between User and Project
+
+
+
+Think to run ESLint then Sass to format App.css.map
