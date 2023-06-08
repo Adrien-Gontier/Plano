@@ -16,4 +16,4 @@ Command line Prettier : npx prettier --write .
 
 
 
-Think to run ESLint then Sass to format App.css.map
+Think to run Prettier
