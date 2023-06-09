@@ -16,4 +16,4 @@ Command line Prettier : npx prettier --write .
 
 
 
-Think to run Prettier
+Think to run Prettier before Sass
