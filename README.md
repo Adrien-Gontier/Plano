@@ -21,6 +21,8 @@
 
 My project for certification.
 
+During my training, I have to build an application. I choosed a management projects application.
+
 It's a project management application.
 
 It's in progress
