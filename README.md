@@ -31,7 +31,9 @@ It's in progress
 
 ## II - Wireframes et models
 
-Links
+Link wireframes : https://www.figma.com/file/8mEb0fHxhIAPZa0cS01CCH/Wireframes-PLANO?node-id=0%3A1&t=DKEUZ7Cc25Vsm96J-1
+
+Link models : https://www.figma.com/file/FBIxLV2YzQC9Wi78s7DphB/Maquette-PLANO?node-id=0%3A1&t=Zkozi8CCWni7BC5o-1
 
 
 ## III - Back-end
