@@ -25,7 +25,6 @@ During my training, I have to build an application. I choosed a management proje
 
 It's a project management application.
 
-It's in progress
 
 
 
