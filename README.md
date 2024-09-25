@@ -44,6 +44,10 @@ Link models : https://www.figma.com/file/FBIxLV2YzQC9Wi78s7DphB/Maquette-PLANO?n
 ## IV - Front-end
 
 
-## V - How to run the application
+
+## V - How to dev the application
+
+
+## VI - How to run the application
 
 
