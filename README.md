@@ -47,6 +47,11 @@ Link models : https://www.figma.com/file/FBIxLV2YzQC9Wi78s7DphB/Maquette-PLANO?n
 
 ## V - How to dev the application
 
+Command line sass : sass --watch ./src/assets/sass/main.scss:./src/assets/sass/App.css --style compressed
+
+Command line Prettier : npx prettier --write .
+
+
 
 ## VI - How to run the application
 
