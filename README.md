@@ -52,6 +52,10 @@ Command line sass : sass --watch ./src/assets/sass/main.scss:./src/assets/sass/A
 Command line Prettier : npx prettier --write .
 
 
+Think to run Prettier before Sass
+
+
+
 
 ## VI - How to run the application
 
