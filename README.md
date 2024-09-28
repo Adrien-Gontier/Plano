@@ -55,6 +55,9 @@ Command line Prettier : npx prettier --write .
 Think to run Prettier before Sass
 
 
+Install node.js and Maven
+
+
 
 
 ## VI - How to run the application
