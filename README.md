@@ -58,6 +58,9 @@ Think to run Prettier before Sass
 Install node.js and Maven
 
 
+Sass with dart
+
+
 
 
 ## VI - How to run the application
