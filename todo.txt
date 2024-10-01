@@ -20,3 +20,5 @@ Think to run Prettier before Sass
 
 
 Put the likes to the website for Sass
+
+Explain each files
