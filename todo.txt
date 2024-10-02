@@ -4,7 +4,7 @@
 - Put how to launch docker (command line)
 - Put command line of maven
 - Put command line ESLint
-- Put links of wireframes and model in readme
+- Put links of wireframes and model in readme : DONE
 
 
 - Do the last relation between User and Project
