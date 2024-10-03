@@ -3,7 +3,7 @@
 - Put command line of node
 - Put how to launch docker (command line)
 - Put command line of maven
-- Put command line ESLint
+- Put command line Prettier : DONE
 - Put links of wireframes and model in readme : DONE
 
 
