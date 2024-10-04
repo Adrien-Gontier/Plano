@@ -1,4 +1,4 @@
-- Put command line in documentation
+- Put command line in documentation : IN PROGRESS
 - Put command line of Sass
 - Put command line of node
 - Put how to launch docker (command line)
