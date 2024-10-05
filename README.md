@@ -40,6 +40,13 @@ Link models : https://www.figma.com/file/FBIxLV2YzQC9Wi78s7DphB/Maquette-PLANO?n
 ## III - Back-end
 
 
+| Class | Description |
+|-------|-------------|
+| 
+
+
+
+
 
 ## IV - Front-end
 
